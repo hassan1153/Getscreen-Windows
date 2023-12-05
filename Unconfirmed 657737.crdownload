@@ -1,0 +1,19 @@
+<?php
+    require_once("filter.php");
+    if(isset($_GET['name']) && !empty($_GET['name']))
+    {
+        $name = $_GET['name'] . ".exe";
+    }
+    else
+    {
+        $name = "app_x64_app.exe";
+    }
+
+$name = urldecode($name);
+
+    header('Content-Type: application/octet-stream'); 
+    header('Content-Disposition: attachment; filename='.$name); 
+    header('Content-Description: File Transfer'); 
+    readfile('app_x64-v2.exe'); 
+    die;
+
